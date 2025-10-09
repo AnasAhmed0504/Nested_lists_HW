@@ -9,9 +9,11 @@ def read_matrix():
 
 if __name__ == '__main__':
     rows, cols, matrix = read_matrix()
-    c1, c2 = map(int, input('enter two columns to swap: ').split())
+    target_value = int(input('enter value to search for: '))
 
-    for row in matrix:
-        row[c1], row[c2] = row[c2], row[c1]
-    
-    print(matrix)
+    for idx, col in enumerate(zip(*matrix)):
+        if target_value in col:
+            print(f'found at {idx}')
+            break
+    else:
+        print('Not Found')
